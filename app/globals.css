@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+:root {
+  --teal: #22989D;
+  --teal-soft: #eef9f9;
+  --gold: #F0C34A;
+  --gold-soft: #fef9e8;
+  --red: #C84726;
+  --red-soft: #fdf3ef;
+  --ink: #1f2937;
+  --soft: #f7f4ec;
+  --line: #e5e0d4;
+  --muted: #6b7280;
+  --background: #ffffff;
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-brand-red: var(--red);
+  --color-red-soft: var(--red-soft);
+  --color-ink: var(--ink);
+  --color-soft: var(--soft);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+html, body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    -apple-system, "Apple SD Gothic Neo", "Pretendard",
+    "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5회차 교재 분위기를 이어받은 컴포넌트 클래스 */
+
+.eyebrow {
+  color: var(--red);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+}
+
+.cover-title em {
+  font-style: normal;
+  background: linear-gradient(transparent 60%, var(--gold) 60%);
+  padding: 0 0.1em;
+}
+
+.mode-card {
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.25rem 1.5rem;
+  background: white;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.mode-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 152, 157, 0.12);
+  border-color: var(--teal);
+}
+.mode-card .mode-emoji { font-size: 2rem; line-height: 1; }
+.mode-card .mode-title { color: var(--teal); font-weight: 700; font-size: 1.1rem; }
+.mode-card .mode-sub   { color: var(--muted); font-size: 0.9rem; line-height: 1.55; }
+
+.callout {
+  border-left: 3px solid var(--gold);
+  background: var(--soft);
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.callout b { color: var(--red); }
+.callout.tip   { border-left-color: var(--teal); background: var(--teal-soft); }
+.callout.danger{ border-left-color: var(--red);  background: var(--red-soft); }
+
+.result-box {
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.input-block textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  background: white;
+  color: var(--ink);
+  resize: vertical;
+  min-height: 96px;
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+.input-block textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(34, 152, 157, 0.15);
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.5rem;
+  border: 0;
+  cursor: pointer;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.btn-primary:hover:not(:disabled) { background: #1c8085; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  padding: 0.55rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.btn-ghost:hover { color: var(--ink); border-color: var(--ink); }
+
+.todo-banner {
+  background: linear-gradient(180deg, #fffaf0 0%, var(--soft) 100%);
+  border: 1px solid var(--gold);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+}
+.todo-banner .todo-label {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
